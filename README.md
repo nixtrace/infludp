@@ -1,12 +1,6 @@
 # Infludp.
 
-A minimal, 0 deps gem to just send UDP metrics to [InfluxDB](http://influxdb.com/), and nothing else.
-
-# Why.
-
-Most of the time the apps we develop doesn't need to interact with the InfluxDB HTTP API or do any operation, but just send metrics via UDP.
-
-There are many great client libraries for InfluxDB, and you should definitely check them out if you need to interact with the InfluxDB HTTP API.
+A minimal, zero dependencies, thread-safe gem to send metrics via UDP to [InfluxDB](http://influxdb.com/), and nothing else.
 
 ## Installation.
 
@@ -19,9 +13,10 @@ gem 'infludp'
 
 ```ruby
 $metrics = Infludp::Client.new(
-  address: '127.0.0.1',
+  host: '127.0.0.1',
   port: 4444
 )
+
 $metrics.send('cpu.load', {
   node: 'east.server1',
   value: 22
@@ -30,11 +25,8 @@ $metrics.send('cpu.load', {
 
 ## Test.
 
-- Be sure you have a local InfluxDB server running.
-
-- run tests with:
 ```ruby
-bundle exec rake test:spec
+bundle exec rake test:all
 ```
 
 ## Contributing.
