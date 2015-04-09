@@ -1,18 +1,21 @@
 module Infludp
   class Client
-    attr_accessor :socket, :address, :port
+    attr_accessor :host, :port
 
     def initialize(args)
-      @socket = UDPSocket.new
-      @address = args[:address]
+      @host = args[:host]
       @port = args[:port]
+    end
+
+    def socket
+      Thread.current[:infludp_socket] ||= UDPSocket.new
     end
 
     def send(name, data)
       socket.send(
         build_metric(name, data),
         0,
-        address,
+        host,
         port
       )
     end
