@@ -22,7 +22,7 @@ describe 'InfluxDB UDP client' do
     expected = [{
       name: 'cpu.load',
       columns: ['node', 'value'],
-      points: ['east.server1', 22]
+      points: [['east.server1', 22]]
     }]
 
     reader, writer = IO.pipe

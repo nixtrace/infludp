@@ -24,7 +24,7 @@ module Infludp
       [{
         name: name,
         columns: data.keys.map{|key| key.to_s},
-        points: data.values
+        points: [data.values]
       }].to_json
     end
   end
