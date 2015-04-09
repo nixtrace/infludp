@@ -1,6 +1,6 @@
 # Infludp.
 
-A minimal, zero dependencies, thread-safe gem to send metrics via UDP to [InfluxDB](http://influxdb.com/), and nothing else.
+A minimal, zero dependencies, thread-safe Ruby gem to send metrics via UDP to [InfluxDB](http://influxdb.com/), and nothing else.
 
 ## Installation.
 
