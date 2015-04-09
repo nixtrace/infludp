@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Marco Lisci"]
   spec.email         = ["info@badshark.io"]
 
-  spec.summary       = %q{Minimal, InfluxDB UDP client.}
-  spec.description   = %q{Minimal InfluxDB UDP client.}
+  spec.summary       = %q{A minimal, zero dependencies, thread-safe Ruby gem to send metrics via UDP to InfluxDB.}
+  spec.description   = %q{A minimal, zero dependencies, thread-safe Ruby gem to send metrics via UDP to InfluxDB.}
   spec.homepage      = "https://github.com/badshark/infludp"
   spec.license       = "MIT"
 
@@ -21,6 +21,4 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.9"
   spec.add_development_dependency "rake", "~> 10.0"
-
-  spec.add_dependency "connection_pool", "~> 2.1.3"
 end
