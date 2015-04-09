@@ -35,10 +35,10 @@ describe 'InfluxDB UDP client' do
       writer.write data
     }
     Process.detach server
-    sleep 1
+    sleep 0.1
 
     @client.send(name, data)
-    sleep 1
+    sleep 0.1
 
     writer.close
     reader.read.must_equal expected.to_json
