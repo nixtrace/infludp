@@ -9,9 +9,9 @@ Benchmark.bmbm(27) do |bm|
     )
 
     1000.times do
-      name = 'cpu.load'
+      name = 'cpu'
       data = {
-        node: 'east.server1',
+        node: 'server1',
         value: 22
       }
 

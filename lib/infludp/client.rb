@@ -21,11 +21,8 @@ module Infludp
     end
 
     def build_metric(name, data)
-      [{
-        name: name,
-        columns: data.keys.map{|key| key.to_s},
-        points: [data.values]
-      }].to_json
+      values = data.map{|k,v| "#{k}=#{v}"}.join(',')
+      "#{name} #{values}"
     end
   end
 end

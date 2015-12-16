@@ -13,18 +13,13 @@ describe 'InfluxDB UDP client' do
   end
 
   it 'can send a metric via UDP' do
-    name = 'cpu.load'
+    name = 'cpu'
     data = {
-      node: 'east.server1',
+      node: 'server1',
       value: 22
     }
 
-    expected = [{
-      name: 'cpu.load',
-      columns: ['node', 'value'],
-      points: [['east.server1', 22]]
-    }]
-
+    expected = "cpu node=server1,value=22"
     reader, writer = IO.pipe
 
     server = fork {
@@ -41,7 +36,7 @@ describe 'InfluxDB UDP client' do
     sleep 0.1
 
     writer.close
-    reader.read.must_equal expected.to_json
+    reader.read.must_equal expected
     reader.close
   end
 end
