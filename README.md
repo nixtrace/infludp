@@ -17,9 +17,10 @@ $metrics = Infludp::Client.new(
   port: 4444
 )
 
-$metrics.send('cpu.load', {
-  node: 'east.server1',
-  value: 22
+$metrics.send('cpu', {
+  node: 'server1',
+  value: 22,
+  boot: true
 })
 ```
 

@@ -12,7 +12,8 @@ Benchmark.bmbm(27) do |bm|
       name = 'cpu'
       data = {
         node: 'server1',
-        value: 22
+        value: 22,
+        boot: true
       }
 
       client.send(name, data)
