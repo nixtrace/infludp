@@ -29,6 +29,16 @@ $metrics.send('cpu', {
 ```ruby
 bundle exec rake test:all
 ```
+## Benchmarks.
+
+```
+Rehearsal ---------------------------------------------------------------
+1000 metrics:                 0.030000   0.020000   0.050000 (  0.046954)
+------------------------------------------------------ total: 0.050000sec
+
+                                  user     system      total        real
+1000 metrics:                 0.030000   0.010000   0.040000 (  0.045463)
+```
 
 ## Contributing.
 
