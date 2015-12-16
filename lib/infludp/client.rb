@@ -21,8 +21,15 @@ module Infludp
     end
 
     def build_metric(name, data)
-      values = data.map{|k,v| "#{k}=#{v}"}.join(',')
-      "#{name} #{values}"
+      values = data.map do |key, value|
+        if value.is_a?(String)
+          "#{key}=\"#{value}\""
+        else
+          "#{key}=#{value}"
+        end
+      end
+
+      "#{name} #{values.join(',')}"
     end
   end
 end

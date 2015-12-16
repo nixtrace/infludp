@@ -16,10 +16,12 @@ describe 'InfluxDB UDP client' do
     name = 'cpu'
     data = {
       node: 'server1',
-      value: 22
+      value: 22,
+      boot: true
     }
 
-    expected = "cpu node=server1,value=22"
+    expected = 'cpu node="server1",value=22,boot=true'
+
     reader, writer = IO.pipe
 
     server = fork {
