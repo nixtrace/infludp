@@ -5,18 +5,20 @@ Benchmark.bmbm(27) do |bm|
   bm.report('1000 metrics:') do
     client = Infludp::Client.new(
       address: '127.0.0.1',
-      port: 3333
+      port: 4444
     )
 
     1000.times do
       name = 'cpu'
-      data = {
+      tags = {
         node: 'server1',
-        value: 22,
-        boot: true
+        os: 'ubuntu'
+      }
+      fields = {
+        value: 22
       }
 
-      client.send(name, data)
+      client.send(name, tags, fields)
     end
   end
 end

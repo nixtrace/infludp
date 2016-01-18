@@ -11,25 +11,27 @@ module Infludp
       Thread.current[:infludp_socket] ||= UDPSocket.new
     end
 
-    def send(name, data)
+    def send(name, tags, fields)
       socket.send(
-        build_metric(name, data),
+        build_metric(name, tags, fields),
         0,
         host,
         port
       )
     end
 
-    def build_metric(name, data)
-      values = data.map do |key, value|
+    def build_metric(name, tags, fields)
+      "#{name},#{to_line(tags)} #{to_line(fields)}"
+    end
+
+    def to_line(hash)
+      hash.map do |key, value|
         if value.is_a?(String)
           "#{key}=\"#{value}\""
         else
           "#{key}=#{value}"
         end
-      end
-
-      "#{name} #{values.join(',')}"
+      end.join(',')
     end
   end
 end

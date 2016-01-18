@@ -17,10 +17,13 @@ $metrics = Infludp::Client.new(
   port: 4444
 )
 
-$metrics.send('cpu', {
+$metrics.send('cpu',
+{
   node: 'server1',
-  value: 22,
-  boot: true
+  os: 'ubuntu'
+},
+{
+  value: 22
 })
 ```
 
@@ -33,11 +36,11 @@ bundle exec rake test:all
 
 ```
 Rehearsal ---------------------------------------------------------------
-1000 metrics:                 0.030000   0.020000   0.050000 (  0.046954)
------------------------------------------------------- total: 0.050000sec
+1000 metrics:                 0.020000   0.000000   0.020000 (  0.018585)
+------------------------------------------------------ total: 0.020000sec
 
                                   user     system      total        real
-1000 metrics:                 0.030000   0.010000   0.040000 (  0.045463)
+1000 metrics:                 0.020000   0.000000   0.020000 (  0.019719)
 ```
 
 ## Contributing.
